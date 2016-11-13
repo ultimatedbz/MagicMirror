@@ -50,8 +50,8 @@ var config = {
 			position: 'top_right',
 			header: 'Weather Forecast',
 			config: {
-	            location: 'New York',
-				locationID: '5128581',  //ID from http://www.openweathermap.org
+	            location: 'Berkeley',
+				locationID: '5327684',  //ID from http://www.openweathermap.org
 			appid: 'fb48fecfe81fedbf19d33b77871698c9'
 			}
 		},
