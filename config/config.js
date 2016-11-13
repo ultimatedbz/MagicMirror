@@ -71,6 +71,11 @@ var config = {
 			}
 		},
 		*/
+    {
+        module: 'imageViewer',
+        position: 'bottom_right',
+
+    },
 	]
 
 };
