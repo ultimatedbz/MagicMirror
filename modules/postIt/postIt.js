@@ -32,7 +32,6 @@ Module.register("postIt",{
 
         if (!this.requesting) {
             $.get("https://mms.kirbi.es/post-it", (function(data) {
-                console.log(data.posts);
                 this.posts = data.posts;
                 this.requesting = true;
                 this.updateDom();

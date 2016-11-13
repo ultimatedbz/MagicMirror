@@ -24,7 +24,6 @@ Module.register("list",{
         table.style.lineHeight = '25px';
         if (!this.requesting) {
             $.get("https://mms.kirbi.es/post-it", (function(data) {
-                console.log(data.posts);
                 this.posts = data.posts;
                 this.requesting = true;
                 this.updateDom();
