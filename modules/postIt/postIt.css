@@ -1,9 +1,10 @@
 .post-it {
   position: relative;
   font-size: .5em;
-  margin: 1rem;
+  margin-bottom: 1rem;
   padding: 1rem 3rem 3rem 1rem;
   border: 2px solid white;
+  max-width: 20rem;
 }
 .post-it:before {
   content: "";
