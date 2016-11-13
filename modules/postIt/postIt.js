@@ -1,3 +1,8 @@
+function nl2br (str, is_xhtml) {   
+    var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';    
+    return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ breakTag +'$2');
+}
+
 Module.register("postIt",{
 
 	// Default module config.
@@ -48,9 +53,9 @@ Module.register("postIt",{
                       wrapper.appendChild(postIt);
                       var postItTitle = document.createElement("div");
                       postItTitle.className = 'post-it-title';
-                      postItTitle.innerHTML = post.title;
+                      postItTitle.innerHTML = nl2br(post.title);
                       postIt.appendChild(postItTitle);
-                      postIt.innerHTML += post.body;
+                      postIt.innerHTML += nl2br(post.body);
                     }
                 });
                 this.lastWrapper = wrapper;
