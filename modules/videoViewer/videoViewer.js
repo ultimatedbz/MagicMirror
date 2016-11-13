@@ -23,8 +23,8 @@ Module.register("videoViewer",{
     elem.src = this.config.videosrc;
     elem.height = 300;
     elem.width = 400;
+    elem.loop = true;
     wrapper.appendChild(elem);
-    //wrapper.style.backgroundColor = "red";
     elem.play();
 
 		return wrapper;
