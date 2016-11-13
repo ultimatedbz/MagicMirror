@@ -4,11 +4,6 @@ Module.register("list",{
 	defaults: {
 	    maximumEntries: 6,
 		title: "To-Do List<br>",
-		line: "___________<br>",
-		listSpot1: "",
-		listSpot2: "",
-		listSpot3: "",
-		listSpot4: "",
 	},
 
 	getScripts: function() {

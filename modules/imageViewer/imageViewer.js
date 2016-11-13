@@ -3,7 +3,7 @@
 /* Magic Mirror
  * Module: HelloWorld
  *
- * By Michael Teeuw http://michaelteeuw.nl
+ * By Jeffrey Chen http://michaelteeuw.nl
  * MIT Licensed.
  */
 
