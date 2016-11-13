@@ -27,7 +27,7 @@ Module.register("postIt",{
       var self = this;
       setInterval(function() {
           self.updateDom(); // no speed defined, so it updates instantly.
-      }, 1000); //perform every 1000 milliseconds.
+      }, 900); //perform every 1000 milliseconds.
   },
 
 	// Override dom generator.
@@ -42,10 +42,16 @@ Module.register("postIt",{
                 this.updateDom();
             }).bind(this));
         } else {
-            if (this.posts.length == 0) {
-                this.lastWrapper.innerHTML = "Add Something to Do!";
+            var wrapper = document.createElement("div");
+            var count = 0;
+            this.posts.slice(0, this.config.maximumEntries).map(function(post) {
+              if (!post.list) {
+                count++;
+              }
+            });
+            if (count == 0) {
+                wrapper.innerHTML = "Add a Post-It!";
             } else {
-                var wrapper = document.createElement("div");
                 this.posts.slice(0, this.config.maximumEntries).map(function(post) {
                     if (!post.list) {
                       var postIt = document.createElement("div");
@@ -58,8 +64,8 @@ Module.register("postIt",{
                       postIt.innerHTML += nl2br(post.body);
                     }
                 });
-                this.lastWrapper = wrapper;
             }
+            this.lastWrapper = wrapper;
             this.requesting = false;
         }
         return this.lastWrapper;

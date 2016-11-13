@@ -17,11 +17,21 @@ Module.register("list",{
         ]
     },
 
+  start: function() {
+      var self = this;
+      setInterval(function() {
+          self.updateDom(); // no speed defined, so it updates instantly.
+      }, 1000); //perform every 1000 milliseconds.
+  },
+
 	// Override dom generator.
 	getDom: function() {
-        var table = document.createElement("table");
+        if (this.lastTable === undefined) {
+          this.lastTable = document.createElement("table");
+          this.lastTable.style.lineHeight = '25px';
+          this.lastTable.style.fontSize = "large";
+        }
 
-        table.style.lineHeight = '25px';
         if (!this.requesting) {
             $.get("https://mms.kirbi.es/post-it", (function(data) {
                 this.posts = data.posts;
@@ -29,11 +39,21 @@ Module.register("list",{
                 this.updateDom();
             }).bind(this));
         } else {
+            var table = document.createElement("table");
+            table.style.lineHeight = '25px';
+            table.style.fontSize = "large";
             var header = table.createTHead();
             var row = header.insertRow(-1);
             var cell = row.insertCell(-1);
             cell.innerHTML = 'To-Do List' + '<br>';
-            if (this.posts.length == 0) {
+
+            var count = 0;
+            this.posts.slice(0, this.config.maximumEntries).map(function(post) {
+              if (post.list) {
+                count++;
+              }
+            });
+            if (count == 0) {
                 row = table.insertRow(-1);
                 cell = row.insertCell(-1);
                 cell.innerHTML = "Add Something to Do!";
@@ -48,8 +68,9 @@ Module.register("list",{
                     }
                 });
             }
+            this.lastTable = table;
+            this.requesting = false;
         }
-        table.style.fontSize = "large";
-        return table;
+        return this.lastTable;
     }
 });
