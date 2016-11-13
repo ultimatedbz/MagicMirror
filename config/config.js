@@ -16,8 +16,8 @@ var config = {
 			module: 'alert',
 		},
 		{
-			module: 'clock',
-			position: 'top_left'
+			module: 'list',
+			position: 'bottom_left'
 		},
 		{
 			module: 'calendar',
@@ -34,7 +34,7 @@ var config = {
 		},
 		{
 			module: 'compliments',
-			position: 'lower_third'
+			//position: 'lower_third'
 		},
 		{
 			module: 'currentweather',
@@ -55,6 +55,7 @@ var config = {
 			appid: 'fb48fecfe81fedbf19d33b77871698c9'
 			}
 		},
+		/*
 		{
 			module: 'newsfeed',
 			position: 'bottom_bar',
@@ -69,6 +70,7 @@ var config = {
 				showPublishDate: true
 			}
 		},
+		*/
 	]
 
 };
