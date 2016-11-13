@@ -18,9 +18,17 @@ Module.register("postIt",{
     ]
   },
 
+  start: function() {
+      var self = this;
+      setInterval(function() {
+          self.updateDom(); // no speed defined, so it updates instantly.
+      }, 1000); //perform every 1000 milliseconds.
+  },
+
 	// Override dom generator.
 	getDom: function() {
-        var wrapper = document.createElement("div");
+        if (this.lastWrapper === undefined)
+          this.lastWrapper = document.createElement("div");
 
         if (!this.requesting) {
             $.get("https://mms.kirbi.es/post-it", (function(data) {
@@ -30,10 +38,10 @@ Module.register("postIt",{
                 this.updateDom();
             }).bind(this));
         } else {
-            //cell.innerHTML = 'postIt' + '<br>';
             if (this.posts.length == 0) {
-                wrapper.innerHTML = "Add Something to Do!";
+                this.lastWrapper.innerHTML = "Add Something to Do!";
             } else {
+                var wrapper = document.createElement("div");
                 this.posts.slice(0, this.config.maximumEntries).map(function(post) {
                     if (!post.list) {
                       var postIt = document.createElement("div");
@@ -46,8 +54,10 @@ Module.register("postIt",{
                       postIt.innerHTML += post.body;
                     }
                 });
+                this.lastWrapper = wrapper;
             }
+            this.requesting = false;
         }
-        return wrapper;
+        return this.lastWrapper;
     }
 });
