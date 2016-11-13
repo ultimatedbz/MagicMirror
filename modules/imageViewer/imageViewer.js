@@ -20,7 +20,7 @@ Module.register("imageViewer",{
 	// Override dom generator.
 	getDom: function() {
         var elem = document.createElement("img");
-        elem.src = this.config.imgsrc3;
+        elem.src = this.config.imgsrc2;
         elem.height = 200;
         elem.width = 200;
 
