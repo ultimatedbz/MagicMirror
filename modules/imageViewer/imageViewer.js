@@ -19,13 +19,11 @@ Module.register("imageViewer",{
 
 	// Override dom generator.
 	getDom: function() {
-		var wrapper = document.createElement("div");
     var elem = document.createElement("img");
     elem.src = this.config.imgsrc3;
     elem.height = 200;
     elem.width = 200;
-    wrapper.appendChild(elem);
 
-		return wrapper;
+	    return elem;
 	}
 });
