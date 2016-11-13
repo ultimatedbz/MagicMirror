@@ -19,6 +19,7 @@ var config = {
 			module: 'list',
 			position: 'bottom_left'
 		},
+    /*
 		{
 			module: 'calendar',
 			header: 'US Holidays',
@@ -32,9 +33,14 @@ var config = {
 				]
 			}
 		},
+    */
 		{
 			module: 'compliments',
 			position: 'lower_third'
+		},
+		{
+			module: 'postIt',
+			position: 'top_left'
 		},
 		{
 			module: 'currentweather',

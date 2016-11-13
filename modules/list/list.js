@@ -40,11 +40,13 @@ Module.register("list",{
                 cell.innerHTML = "Add Something to Do!";
             } else {
                 this.posts.slice(0, this.config.maximumEntries).map(function(post) {
-                    row = table.insertRow(-1);
-                    cell = row.insertCell(-1);
-                    cell.innerHTML = post.title;
-                    cell = row.insertCell(-1);
-                    cell.innerHTML = post.body;
+                    if (post.list) {
+                      row = table.insertRow(-1);
+                      cell = row.insertCell(-1);
+                      cell.innerHTML = post.title;
+                      cell = row.insertCell(-1);
+                      cell.innerHTML = post.body;
+                    }
                 });
             }
         }
