@@ -73,6 +73,11 @@ var config = {
     */
     {
         module: 'imageViewer',
+        position: 'bottom_left',
+
+    },
+    {
+        module: 'videoViewer',
         position: 'bottom_right',
 
     },
