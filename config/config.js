@@ -73,7 +73,7 @@ var config = {
     */
     {
         module: 'imageViewer',
-        position: 'bottom_bar',
+        position: 'bottom_right',
 
     },
 	]
