@@ -1,9 +1,3 @@
-/* Magic Mirror Config Sample
- *
- * By Michael Teeuw http://michaelteeuw.nl
- * MIT Licensed.
- */
-
 var config = {
 	port: 8080,
 
@@ -16,10 +10,9 @@ var config = {
 			module: 'alert',
 		},
 		{
-			module: 'list',
-			position: 'bottom_left'
+			module: 'clock',
+			position: 'top_left'
 		},
-    /*
 		{
 			module: 'calendar',
 			header: 'US Holidays',
@@ -33,22 +26,17 @@ var config = {
 				]
 			}
 		},
-    */
 		{
 			module: 'compliments',
 			position: 'lower_third'
-		},
-		{
-			module: 'postIt',
-			position: 'top_left'
 		},
 		{
 			module: 'currentweather',
 			position: 'top_right',
 			config: {
 				location: 'Berkeley',
-				locationID: '5327684',  //ID from http://www.openweathermap.org
-				appid: 'fb48fecfe81fedbf19d33b77871698c9'
+                locationID: '5327684',  //ID from http://www.openweathermap.org
+                appid: 'fb48fecfe81fedbf19d33b77871698c9'
 			}
 		},
 		{
@@ -58,19 +46,23 @@ var config = {
 			config: {
 	            location: 'Berkeley',
 				locationID: '5327684',  //ID from http://www.openweathermap.org
-			appid: 'fb48fecfe81fedbf19d33b77871698c9'
+			    appid: 'fb48fecfe81fedbf19d33b77871698c9'
 			}
 		},
-    {
-        module: 'imageViewer',
-        position: 'bottom_left',
-
-    },
-    {
-        module: 'videoViewer',
-        position: 'bottom_right',
-
-    },
+		{
+			module: 'newsfeed',
+			position: 'bottom_bar',
+			config: {
+				feeds: [
+					{
+						title: "New York Times",
+						url: "http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml"
+					}
+				],
+				showSourceTitle: true,
+				showPublishDate: true
+			}
+		},
 	]
 
 };
